@@ -16,16 +16,32 @@ public class Biblioteca {
 
         for (int i = 0; i < listLibri.length; i++) {
 
-            System.out.print("Inserisci il Titolo del libro: ");
-            String titotlo = scan.nextLine();
-            System.out.print("Inserisci il numero di pagine del libro: ");
-            int nPagine = Integer.parseInt(scan.nextLine());
-            System.out.print("Inserisci l'autore del libro: ");
-            String autore = scan.nextLine();
-            System.out.print("Inserisci l'editore del libro: ");
-            String editore = scan.nextLine();
 
-            Libro book = new Libro(titotlo, nPagine, autore, editore);
+            String titotlo = null;
+            int nPagine = 0;
+            String autore = null;
+            String editore = null;
+            boolean validBook = false;
+            Libro book = null;
+            do {
+                try {
+                    System.out.print("Inserisci il Titolo del libro: ");
+                    titotlo = scan.nextLine();
+                    System.out.print("Inserisci il numero di pagine del libro: ");
+                    nPagine = Integer.parseInt(scan.nextLine());
+                    System.out.print("Inserisci l'autore del libro: ");
+                    autore = scan.nextLine();
+                    System.out.print("Inserisci l'editore del libro: ");
+                    editore = scan.nextLine();
+
+                    book = new Libro(titotlo, nPagine, autore, editore);
+                    validBook = true;
+
+                } catch (RuntimeException e) {
+                    System.out.println("Inserisci dei dati validi");
+                }
+            } while (!validBook);
+
             listLibri[i] = book;
         }
 
