@@ -35,7 +35,11 @@ public class Libro {
     }
 
     public void setTitolo(String titolo) {
-        this.titolo = titolo;
+        if (titolo.isEmpty()) {
+            throw new RuntimeException("Titolo non puo essere vuoto");
+        } else {
+            this.titolo = titolo;
+        }
     }
 
     public int getNumeroPagine() {
@@ -43,7 +47,11 @@ public class Libro {
     }
 
     public void setNumeroPagine(int numeroPagine) {
-        this.numeroPagine = numeroPagine;
+        if (numeroPagine <= 0) {
+            throw new RuntimeException("Il numero dell pagine non puo essere <= 0");
+        } else {
+            this.numeroPagine = numeroPagine;
+        }
     }
 
     public String getAutore() {
@@ -51,7 +59,11 @@ public class Libro {
     }
 
     public void setAutore(String autore) {
-        this.autore = autore;
+        if (autore.isEmpty()) {
+            throw new RuntimeException("l'autore non puo essere vuoto");
+        } else {
+            this.autore = autore;
+        }
     }
 
     public String getEditore() {
@@ -59,7 +71,11 @@ public class Libro {
     }
 
     public void setEditore(String editore) {
-        this.editore = editore;
+        if (editore.isEmpty()) {
+            throw new RuntimeException("l'editore non puo essere vuoto");
+        } else {
+            this.editore = editore;
+        }
     }
 
     @Override
