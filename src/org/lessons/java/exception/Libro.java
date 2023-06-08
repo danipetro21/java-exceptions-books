@@ -7,24 +7,26 @@ public class Libro {
     private String autore;
     private String editore;
 
-    public Libro(String titolo, int numeroPagine, String autore, String editore) throws RuntimeException {
-        if (titolo.isEmpty()) {
-            throw new RuntimeException("Titolo non puo essere vuoto");
+
+
+    public Libro(String titolo, int numeroPagine, String autore, String editore) throws IllegalArgumentException {
+        if (titolo==null || titolo.isEmpty()) {
+            throw new IllegalArgumentException("Titolo non puo essere vuoto");
         } else {
             this.titolo = titolo;
         }
         if (numeroPagine <= 0) {
-            throw new RuntimeException("Il numero dell pagine non puo essere <= 0");
+            throw new IllegalArgumentException("Il numero dell pagine non puo essere <= 0");
         } else {
             this.numeroPagine = numeroPagine;
         }
-        if (autore.isEmpty()) {
-            throw new RuntimeException("l'autore non puo essere vuoto");
+        if (autore==null || autore.isEmpty()) {
+            throw new IllegalArgumentException("l'autore non puo essere vuoto");
         } else {
             this.autore = autore;
         }
-        if (editore.isEmpty()) {
-            throw new RuntimeException("l'editore non puo essere vuoto");
+        if (editore==null || editore.isEmpty()) {
+            throw new IllegalArgumentException("l'editore non puo essere vuoto");
         } else {
             this.editore = editore;
         }
@@ -35,8 +37,8 @@ public class Libro {
     }
 
     public void setTitolo(String titolo) {
-        if (titolo.isEmpty()) {
-            throw new RuntimeException("Titolo non puo essere vuoto");
+        if (titolo==null || titolo.isEmpty()) {
+            throw new IllegalArgumentException("Titolo non puo essere vuoto");
         } else {
             this.titolo = titolo;
         }
@@ -48,7 +50,7 @@ public class Libro {
 
     public void setNumeroPagine(int numeroPagine) {
         if (numeroPagine <= 0) {
-            throw new RuntimeException("Il numero dell pagine non puo essere <= 0");
+            throw new IllegalArgumentException("Il numero dell pagine non puo essere <= 0");
         } else {
             this.numeroPagine = numeroPagine;
         }
@@ -59,8 +61,8 @@ public class Libro {
     }
 
     public void setAutore(String autore) {
-        if (autore.isEmpty()) {
-            throw new RuntimeException("l'autore non puo essere vuoto");
+        if (autore==null || autore.isEmpty()) {
+            throw new IllegalArgumentException("l'autore non puo essere vuoto");
         } else {
             this.autore = autore;
         }
@@ -71,8 +73,8 @@ public class Libro {
     }
 
     public void setEditore(String editore) {
-        if (editore.isEmpty()) {
-            throw new RuntimeException("l'editore non puo essere vuoto");
+        if (editore==null || editore.isEmpty()) {
+            throw new IllegalArgumentException("l'editore non puo essere vuoto");
         } else {
             this.editore = editore;
         }

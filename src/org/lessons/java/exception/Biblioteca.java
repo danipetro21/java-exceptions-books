@@ -7,19 +7,13 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Biblioteca {
-
     public static void main(String[] args) {
-
         Scanner scan = new Scanner(System.in);
-
         System.out.print("Quanti libri vuoi inserire: ");
         int n = Integer.parseInt(scan.nextLine());
 
         Libro[] listLibri = new Libro[n];
-
         for (int i = 0; i < listLibri.length; i++) {
-
-
             String titotlo = null;
             int nPagine = 0;
             String autore = null;
@@ -36,23 +30,17 @@ public class Biblioteca {
                     autore = scan.nextLine();
                     System.out.print("Inserisci l'editore del libro: ");
                     editore = scan.nextLine();
-
                     book = new Libro(titotlo, nPagine, autore, editore);
                     validBook = true;
-
-                } catch (RuntimeException e) {
+                } catch (IllegalArgumentException e) {
                     System.out.println(e.getMessage());
                 }
             } while (!validBook);
-
             listLibri[i] = book;
         }
-
-
         //scrittura su file
-
         try {
-            File file = new File("html.txt");
+            File file = new File("./resources/book.txt");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for (int i = 0; i < listLibri.length; i++) {
@@ -64,7 +52,5 @@ public class Biblioteca {
             System.out.println("Si è verificato un errore durante la scrittura del file.");
             e.printStackTrace();
         }
-
     }
-
 }
